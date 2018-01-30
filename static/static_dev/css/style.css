@@ -1,0 +1,289 @@
+
+.wrapper-content {
+    overflow: auto;
+    padding-bottom: 180px;
+}
+
+.navbar-top {
+    height: 40px;
+    background-color: #131419;
+}
+
+.navbar-main {
+    height: 80px;
+}
+
+.content {
+    box-sizing: border-box;
+    min-height: 100%;
+    padding-bottom: 90px;
+}
+
+/*top container style*/
+.top-container {
+    padding-top: 5%;
+}
+
+.nav-top-link {
+    color: white;
+    font-weight: 700;
+}
+
+.nav-link {
+    text-align: right;
+}
+
+.nav-top-link:hover {
+    color: #cce8ff;
+    font-weight: 700;
+}
+
+.profile-container {
+    background-color: white;
+    border-style: dashed;
+    margin: 15px auto 15px auto;
+    padding: 10px 10px 10px 10px;
+}
+
+.general-container {
+    font-family: 'Roboto', sans-serif;
+    background: url('../img/bg-img1.jpg') no-repeat center center fixed;
+    height: 100%;
+    text-align: center;
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-weight: 100;
+}
+
+.title-container {
+    margin-top: 240px;
+}
+
+.title {
+    color: #fffff9;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.brand-title {
+    color: #fffff9;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.product-item {
+    text-align: center;
+    height: 500px;
+    background: white;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid lightgray;
+    padding: 5px 0 5px 0;
+}
+
+.add-to-cart-btn {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+}
+
+.product-thumbnails-img {
+    margin: 0 5px 0 5px;
+}
+
+.slider {
+    margin-bottom: 20px;
+}
+
+.product-short-desc {
+    margin: 5px;
+}
+
+.product-short-price {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+}
+
+.product-discount {
+    position: absolute;
+    background: #5acc5a;
+    top: 40%;
+    left: 0;
+    width: 40%;
+    color: white;
+    font-weight: 700;
+}
+
+.footer {
+    position: relative;
+    margin-top: -180px;
+    width: 100%;
+    height: 180px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: white;
+}
+
+.product-description-tabs {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid lightgray;
+}
+
+.product-page-img {
+    margin: 15px 0 15px 0;
+}
+
+.product-page-price {
+    padding: 15px 0 15px 0;
+    margin: 15px 0 15px 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.nav-product-page {
+    padding-top: 15px;
+}
+
+.btn-page-buy {
+    margin-left: 5px;
+}
+
+.product-page-form-buy {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin: 15px 0 15px 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.modal-header {
+    text-align: center;
+    border: none;
+    color: white;
+    margin-left: 5px;
+}
+
+.modal-content {
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+.close-modal {
+    color: white;
+}
+
+.close-modal:hover {
+    color: #e9e9e9;
+}
+
+.main-modal-contacts {
+    margin: 15px 0 15px 0;
+    font-size: 24px;
+}
+
+.fa-modal {
+    margin: 15px 0 15px 0;
+    color: white;
+    font-size: 48px;
+}
+
+.fa-modal:hover {
+    margin: 15px 0 15px 0;
+    color: #bef0ff;
+    font-size: 48px;
+}
+
+a.text:active, /* активная/посещенная ссылка */
+a.text {
+    text-decoration: none;
+    color: #212529;
+}
+
+a.text:hover {
+    text-decoration: none;
+    color: #43474b;
+}
+
+ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block;
+    margin: 0;
+}
+
+a.menu:after, .dropdown-toggle:after {
+    content: none;
+}
+
+.basket-container {
+    width: 400px;
+}
+
+.basket-items {
+    width: 100%;
+}
+
+﻿
+.card-columns {
+    text-align: center;
+}
+
+/*checkout page styles*/
+.checkout-container {
+    margin-top: 5px;
+}
+
+.cart-checkout-table {
+    margin-top: 10px;
+}
+
+.empty-checkout-header {
+    display: flex;
+    justify-content: center; /*Центрирование по горизонтали*/
+    align-items: center; /*Центрирование по вертикали */
+}

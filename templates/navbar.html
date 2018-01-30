@@ -1,0 +1,153 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-top">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item nav-top-item">
+            <a class="nav-link nav-top-link modal-link active" href="#" data-toggle="modal"
+               data-target="#contactsModal">Контакты</a>
+        </li>
+        <li class="nav-item nav-top-item">
+            <a class="nav-link nav-top-link" href="#"><i class="fa fa-phone" aria-hidden="true"></i> +79151949419</a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        {% if username %}
+            <li class="nav-item nav-top-item auth_user">
+                <a class="nav-link nav-top-link active" href="/logout">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>Выйти ({{ username }})</a>
+            </li>
+        {% else %}
+            <a class="nav-link nav-top-link active" href="/login">
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Войти</a>
+            </li>
+        {% endif %}
+        {% if username %}
+            <li class="nav-item nav-top-item">
+                <a class="nav-link nav-top-link" href="/accounts/profile"><i class="fa fa-user-plus"
+                                                                             aria-hidden="true"></i>
+                    Профиль</a>
+            </li>
+        {% else %}
+            <li class="nav-item nav-top-item">
+                <a class="nav-link nav-top-link" href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i>
+                    Регистрация</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark navbar-main">
+    <a class="navbar-brand" href="/">CENTROBEZHNAYA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Домой<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">О нас</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Товары
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/products/cezvi">Турки</a>
+                    <a class="dropdown-item" href="#">Молочники</a>
+                    <a class="dropdown-item" href="#">Миски</a>
+                    <a class="dropdown-item" href="#">Блюда</a>
+                    <a class="dropdown-item" href="#">Кружки</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Воплотить свою идею!</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/news">Акции и Новости</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/articles">Статьи</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Мастер классы</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown basket-container">
+                <a href="#" class="dropdown-toggle nav-link active" data-toggle="dropdown" role="button"
+                   aria-haspopup="true"
+                   aria-expanded="true"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Корзина <span
+                        id="product_total_numb">{% csrf_token %}
+                    {% if products_total_numb %}
+                        ({{ products_total_numb }})
+                    {% else %}
+                        (0)
+                    {% endif %}
+                </span></a>
+                <div class="dropdown-menu basket-items">
+                    <ul class="">
+                        {% if products_total_numb %}
+                            {% for product_in_basket in products_in_basket %}
+                                <li><h6>{{ product_in_basket.product.name }} {{ product_in_basket.number }} шт.
+                                    по {{ product_in_basket.price_per_item }} руб. <a class="delete-item"
+                                                                                     href="" data-product_id="{{ product_in_basket.id }}">x</a>
+{#                                    must look like this href="" data-product_id="{{ product_in_basket.id }}"#}
+                                </h6></li>
+                            {% endfor %}
+                            <div class="checkout-btn">
+                                <form>
+                                    <input class="btn btn-success" type="button" value="Оформить заказ"
+                                           onclick="javascript:window.location='/checkout'"/>
+                                </form>
+                            </div>
+                        {% else %}
+                            <h4>Корзина пуста!</h4>
+                        {% endif %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="contactsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="contactsModalLabel">Наши контакты</h4>
+                <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="main-modal-contacts"><i class="fa fa-phone" aria-hidden="true"></i> +79151949419</h5>
+                <div class="row">
+                    <div class="col modal-contacts">
+
+                        <a href="https://www.instagram.com/centrobezhnaja/" target="_blank"><i
+                                class="fa fa-modal fa-instagram"
+                                aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col">
+                        <a href="#"><i class="fa fa-modal fa-facebook" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="#"><i class="fa fa-modal fa-vk" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col">
+                        <a href="#"><i class="fa fa-modal fa-google-plus" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <h5 class="main-modal-contacts"><i class="fa fa-envelope-o" aria-hidden="true"></i> example@gmail.com
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>

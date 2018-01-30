@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="content">
+        <div class="slider">
+            <div class="section-top">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="{% static "img/slider4.png" %}" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{% static "img/slider4.png" %}" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{% static "img/slider4.png" %}" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Предыдущий</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Следующий</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>
+                            Товары
+                        </h1>
+                    </div>
+                    {% for product_image in products_images %}
+                        <div class="col">
+                            <div class="product-item">
+                                <a href="{% url 'product' product_image.product.id %}">
+                                    <div class="product-thumbnails-img">
+                                        <img src="{{ product_image.image.url }}" class="img-fluid">
+                                    </div>
+                                </a>
+                                {% if product_image.product.discount %}
+                                    <div class="product-discount">
+                                        <span>{{ product_image.product.discount }}%</span>
+                                    </div>
+                                {% endif %}
+                                <a class="text" href="{% url 'product' product_image.product.id %}">
+                                    <h4>{{ product_image.product.name }}</h4>
+                                </a>
+                                <div class="product-short-desc">
+                                    <p>
+                                        {{ product_image.product.short_description }}
+                                    </p>
+                                </div>
+                                <div class="product-short-price">
+                                    <h4>{{ product_image.product.price }} &#8381</h4>
+                                </div>
+                                <div class="add-to-cart-btn">
+                                    <button class="btn btn-success btn-short-buy">
+                                        Добавить в корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

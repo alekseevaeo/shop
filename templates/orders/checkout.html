@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if products_total_numb %}
+        <div class="container checkout-container">
+            <div class="row">
+                <div class="col-lg">
+                    <h3>Товары в корзине</h3>
+                    <div class="cart-checkout-table">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Название товара</th>
+                                <th scope="col">Стоимость за единицу</th>
+                                <th scope="col">Количество</th>
+                                <th scope="col">Общая стоимость</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for product_in_basket in products_in_basket %}
+                                <tr>
+                                    <th scope="row">{{ product_in_basket.product.name }}</th>
+                                    <td>
+                                        <span class="product-price">
+                                            {{ product_in_basket.price_per_item }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input value="{{ product_in_basket.number }}" class="product-in-basket-nmb"
+                                               type="number" name="product_in_basket_{{ product_in_basket.id }}">
+                                    </td>
+                                    <td>
+                                        <span class="total-product-in-basket-amount">
+                                        {{ product_in_basket.total_price }}
+                                        </span>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                <div class="row">
+                    <div class="col">
+                        <h5>Итоговая стоимость: <span id="total_order_amount">5400</span></h5>
+                    </div>
+                    <div class="col text-right">
+                        <button type="submit" class="btn btn-primary btn-lg">Заказать</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="outer empty-checkout-header" style="height:100px; width: 100%;">
+            <h3>В корзине нет товаров!</h3>
+        </div>
+    {% endif %}
+{% endblock %}
